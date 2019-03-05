@@ -9,6 +9,13 @@ export class HeaderComponent implements OnInit {
 
   public title: string ="Titulo 1";
 
+  public style: any = 
+  {
+    color: 'red', 'font-size': '20px'
+  }
+
+  public categoria: string = 'A';
+
   constructor() { }
 
   ngOnInit() {
