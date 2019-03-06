@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'body',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  public description: string = "Esta es la descripcion";
-  public price: number = 12.99;
+  @Input() description: string;
+  @Input() price: number;
 
   constructor() { }
 

@@ -1,5 +1,6 @@
 <div class="container">
+  <!--{{ lista | json }}-->
   <div class="row">
-    <card></card>
+    <card *ngFor="let item of lista" [articulo]="item"></card>
   </div>
 </div>
