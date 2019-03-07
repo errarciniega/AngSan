@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+    <table class="table table-striped custab">
+    <thead>
+    <button (click)="nuevo(template)" class="btn btn-primary btn-xs pull-right"><b>+</b> Nuevo</button>
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr *ngFor="let articulo of articulos">
+                <td>{{articulo.id}}</td>
+                <td>{{articulo.title}}</td>
+                <td>{{articulo.description}}</td>
+                <td class="text-center"><button class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span> Editar</button> <button class="btn btn-danger btn-xs" (click)="borrar(articulo)"><span class="glyphicon glyphicon-remove"></span> Borrar</button></td>
+            </tr>
+    </table>
+    </div>
+</div>
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <button (click)="agregar()">Agregar</button>
+    </div>
+  </ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'footer',
@@ -14,12 +14,23 @@ export class FooterComponent implements OnInit {
 
     public promotion: boolean = true;
     public color: boolean = false;
+    @Output() onEliminar: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() onSeleccionar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     public aplicarPromocion()
     {
       this.color = !this.color;
     }
 
+    public eliminar()
+    {
+      this.onEliminar.emit(true);
+    }
+
+    public Seleccionar()
+    {
+      this.onSeleccionar.emit(true);
+    }
   constructor() { }
 
   ngOnInit() {

@@ -4,9 +4,11 @@ import { CardComponent } from './card/card.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
+import { CasePipe } from './case.pipe';
+import { TraducPipe } from './traduc.pipe';
 
 @NgModule({
-  declarations: [CardComponent, HeaderComponent, BodyComponent, FooterComponent],
+  declarations: [CardComponent, HeaderComponent, BodyComponent, FooterComponent, CasePipe, TraducPipe],
   imports: [
     CommonModule
   ], exports: [CardComponent, HeaderComponent, BodyComponent, FooterComponent]

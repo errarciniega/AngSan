@@ -1,6 +1,7 @@
 <div class="card text-center">
+  Fecha: {{ articulo.fecha | date:'dd-MM-yyyy hh:mm:ss'}}
   <header [titulo]="articulo.title" [categoria]="articulo.categoria"></header>
     <img [src]="articulo.url" class="card-img-top" alt="...">
   <body [description]="articulo.description" [price]="articulo.precio"></body>
-  <footer></footer>
+  <footer (onEliminar)="accionEliminar($event)" (onSeleccionar)="accionSeleccionar($event)"></footer>
 </div>
