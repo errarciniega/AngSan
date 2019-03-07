@@ -5,16 +5,22 @@
     <button (click)="nuevo(template)" class="btn btn-primary btn-xs pull-right"><b>+</b> Nuevo</button>
         <tr>
             <th>ID</th>
+            <th>Marca</th>
             <th>Producto</th>
             <th>Descripción</th>
-            <th class="text-center">Action</th>
+            <th>Precio</th>
+            <th>Promoción</th>
+            <th class="text-center">Acción</th>
         </tr>
     </thead>
             <tr *ngFor="let articulo of articulos">
                 <td>{{articulo.id}}</td>
+                <td>{{articulo.marca}}</td>
                 <td>{{articulo.title}}</td>
                 <td>{{articulo.description}}</td>
-                <td class="text-center"><button class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span> Editar</button> <button class="btn btn-danger btn-xs" (click)="borrar(articulo)"><span class="glyphicon glyphicon-remove"></span> Borrar</button></td>
+                <td>{{articulo.precio | number:'0.1-2'}}</td>
+                <td>{{articulo.promotion}}</td>
+                <td class="text-center"><button (click)="editar(articulo, template)" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span> Editar</button> <button class="btn btn-danger btn-xs" (click)="borrar(articulo)"><span class="glyphicon glyphicon-remove"></span> Borrar</button></td>
             </tr>
     </table>
     </div>
@@ -27,6 +33,46 @@
       </button>
     </div>
     <div class="modal-body">
-      <button (click)="agregar()">Agregar</button>
+        <div *ngIf="formArticulo.valid" class="alert alert-success" role="alert">
+            El formulario es correcto !
+          </div>
+        <div *ngIf="!formArticulo.valid" class="alert alert-danger" role="alert">
+            El formulario es inválido !
+          </div>
+        <div [formGroup]="formArticulo">
+          <!--{{ formArticulo.value | json }} --> 
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input formControlName="nombre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre artículo">
+              <small *ngIf="formArticulo.get('nombre').errors?.required" id="emailHelp" class="form-text text-muted">El nombre es requerido.</small>
+              <br>
+              <input formControlName="marca" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Marca">
+              <br>
+              <input formControlName="precio" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=" Precio">
+              <br>
+              <input formControlName="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Título">
+              <br>
+              <input formControlName="description" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Descripción">
+              <br>
+              <div class="form-check">
+                <input formControlName="promotion" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Promoción</label>
+              </div>
+              <br>
+              <input formControlName="categoria" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Categoría">
+              <br>
+              <input formControlName="url" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Img Ubicación">
+            </div>
+            <!--<div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div> -->
+            <div class="form-check">
+              <!--<input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
+            </div>
+            <!--<button type="submit" class="btn btn-primary">Submit</button>  -->
+          </div>
+      <button (click)="agregar()" class="btn btn-primary">Guardar</button>
     </div>
   </ng-template>

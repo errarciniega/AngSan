@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { UppercasePipe } from './pipes/uppercase.pipe';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
