@@ -1,6 +1,8 @@
 <div class="container">
   <!--{{ lista | json }}-->
   <div class="row">
-    <card *ngFor="let item of lista" [articulo]="item" (onQuitar)="quitar($event)"></card>
+    <div class="col-md-4" *ngFor="let item of lista">
+      <card [articulo]="item" (onQuitar)="quitar($event)"></card>
+    </div>
   </div>
 </div>

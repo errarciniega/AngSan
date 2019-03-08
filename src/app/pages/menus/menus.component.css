@@ -1,0 +1,58 @@
+.page{
+    display:flex;
+    flex-direction:row;
+    height:100vh;
+}
+
+.sidebar{
+    flex:1;
+    border:solid black 1px;
+    height:100%;
+}
+
+.content{
+    flex:4;
+    border:solid black 1px;
+    height:100%;
+}
+
+.sidebar ul {
+    list-style:none;
+    padding-left:58px;
+}
+.sidebar ul li {
+    padding:10px;
+}
+.sidebar ul li a {
+    color:rgb(131, 125, 125);
+    display:block;
+}
+.sidebar ul li i {
+    float:left;
+    color:grey;
+    margin-left:-58px;
+    font-size:24px;
+    padding-left:7px;
+}
+.sidebar ul li:hover {
+    background:#167696;
+}
+.sidebar ul li a:hover {
+    color:#fff;
+    text-decoration:none;
+}
+.sidebar ul li:hover i {
+    color:#fff;
+}
+.sidebar ul li.active {
+    background:#0f4698;
+}
+.sidebar ul li.active i {
+    color:#fff;
+}
+.sidebar ul li.active:hover {
+    background:#167696;
+}
+.sidebar ul li.active:hover i {
+    color:#fff;
+}

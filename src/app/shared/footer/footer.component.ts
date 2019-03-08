@@ -7,10 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-    public botones:any[]=[
+    /*public botones:any[]=[
       { name: 'Boton 1' },
       { name: 'Boton 2' },
-      { name: 'Boton 3' }];
+      { name: 'Boton 3' }];*/
 
     public promotion: boolean = true;
     public color: boolean = false;

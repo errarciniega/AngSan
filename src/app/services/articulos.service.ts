@@ -7,13 +7,18 @@ import { articulosDB } from '../datos/articulosDB';
 })
 export class ArticulosService {
 
-  public articulos: Articulo[]=articulosDB;
-
   constructor() { }
 
   public getArticulos()
   {
     return this.articulos;
+  }
+
+  public articulos: Articulo[] = articulosDB;
+
+  public  get(id: number)
+  {
+    let articulo: Articulo = this.articulos.find((item: Articulo) => {return item.id == id;}); return articulo;
   }
 
   public nuevo(articulo)
